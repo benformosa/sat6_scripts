@@ -24,8 +24,10 @@ def get_cv(org_id, cleanup_list, keep):
     """Get the content views"""
 
     # Query API to get all content views for our org
-    cvs = helpers.get_json(
-        helpers.KATELLO_API + "organizations/" + str(org_id) + "/content_views/")
+    cvs = helpers.get_p_json(
+        helpers.KATELLO_API + "organizations/" + str(org_id) + "/content_views/",
+        json.dumps({"per_page":"10000"})
+    )
     ver_list = collections.OrderedDict()
     ver_descr = collections.OrderedDict()
     ver_keep = collections.OrderedDict()
