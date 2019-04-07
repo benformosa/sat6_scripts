@@ -17,7 +17,10 @@ import os
 import argparse
 import datetime
 import pickle
-import simplejson as json
+try:
+    import simplejson as json
+except ImportError:
+    import json
 import helpers
 
 try:

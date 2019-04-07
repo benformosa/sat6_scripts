@@ -14,7 +14,10 @@ Removes content view versions that don't belong to any environment
 
 import sys, argparse
 import collections
-import simplejson as json
+try:
+    import simplejson as json
+except ImportError:
+    import json
 import helpers
 
 def get_cv(org_id, cleanup_list, keep):

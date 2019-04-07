@@ -12,7 +12,10 @@ Exports Satellite 6 yum content.
 
 import sys, argparse, datetime, os, shutil, pickle, re
 import fnmatch, subprocess, tarfile
-import simplejson as json
+try:
+    import simplejson as json
+except ImportError:
+    import json
 from glob import glob
 import helpers
 

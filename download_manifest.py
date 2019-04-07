@@ -15,7 +15,10 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-import json
+try:
+    import simplejson as json
+except ImportError:
+    import json
 import getpass
 import urllib2
 import base64
