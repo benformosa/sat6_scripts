@@ -205,7 +205,11 @@ def cleanup(ver_list, ver_descr, dry_run, runuser, ver_keep, cleanall, ignorefir
             todelete = []
             # Remove the element numbers for deletion from the list all versions
             for i in sorted(list_pos_to_delete, reverse=True):
-                todelete.append(orphan_versions[i])
+                try:
+                    todelete.append(orphan_versions[i])
+                except IndexError as e:
+                    # Continue when no orphan_versions are found
+                    pass
 
         msg = "Versions to remove: " + str(todelete)
         helpers.log_msg(msg, 'DEBUG')
